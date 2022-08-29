@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- load jquery, lodash and my custom script(s) -->
+    <script src="jquery-3.6.1.min.js"></script> 
+    <script src="lodash.js"></script>
+    <script type="module" src="index.js"></script>
+
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="my-div">
+        </div>
+
+        <div>
+            <form action="">
+                <div>
+                    <label for="country">Country</label>
+                    <!-- <select name="country" id="country" onchange="loadCityData()"> -->
+                    <select name="country" id="country">
+                    </select>
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <select name="city" id="city" >
+                    </select>
+                </div>
+
+            </form>
+            <div>
+                <button onclick="loadCountryData()">Load country data</button>
+                <button onclick="alert($( `#country` ).val())">Show selected country value</button>
+                <button onclick="alert(countryCityGraph[$( `#country` ).val()])">Show corresponding city values</button>
+                <button onclick="alert(
+                    _.flow([
+                        Object.entries, 
+                        arr => arr.filter(([key, value]) => countryCityGraph[$( `#country` ).val()].includes(value)), 
+                        Object.fromEntries
+            ])(cityOptions)
+            )">Show corresponding city names</button>
+                <button onclick="loadCityData()">Load city data</button>
+            </div>
+
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
